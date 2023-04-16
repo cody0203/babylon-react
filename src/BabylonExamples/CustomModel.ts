@@ -17,8 +17,9 @@ export class CustomModel {
     constructor(private canvas: HTMLCanvasElement) {
         this.engine = new Engine(canvas, true)
         this.scene = this.createScene()
-        this.createGround()
-        this.createBarrel()
+        // this.createGround()
+        // this.createBarrel()
+        this.createCampfire()
         this.engine.runRenderLoop(() => {
             this.scene.render()
         })
@@ -26,7 +27,7 @@ export class CustomModel {
 
     createScene(): Scene {
         const scene = new Scene(this.engine);
-        const camera = new FreeCamera('Camera', new Vector3(0, 1, -2), this.scene)
+        const camera = new FreeCamera('Camera', new Vector3(0, 1, -5), this.scene)
         camera.attachControl();
         camera.speed = 0.25;
 
@@ -49,9 +50,20 @@ export class CustomModel {
         ground.material = new CreateAsphalt(this.scene).createAsphalt()
     }
 
-    createBarrel(): void {
-        SceneLoader.ImportMesh('', '/models/', 'barrel.glb', this.scene, (meshes) => {
-            console.log('mesh', meshes)
-        });
+    async createBarrel(): Promise<void> {
+        // SceneLoader.ImportMesh('', '/models/', 'barrel.glb', this.scene, (meshes) => {
+        //     console.log('mesh', meshes)
+        // });
+
+        const models = await SceneLoader.ImportMeshAsync('', '/models/', 'barrel.glb', this.scene)
+    }
+
+    disposeEngine(): void {
+        this.engine.dispose()
+    }
+
+    async createCampfire(): Promise<void> {
+        const models = await SceneLoader.ImportMeshAsync('', '/models/', 'campfire.glb', this.scene)
+        console.log(models)
     }
 }

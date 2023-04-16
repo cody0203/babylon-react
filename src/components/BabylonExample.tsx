@@ -4,8 +4,11 @@ import {CustomModel} from "../BabylonExamples/CustomModel";
 const BabylonExample = () => {
     useEffect(() => {
         const canvas = document.querySelector('canvas')!;
-        new CustomModel(canvas)
-    })
+        const model = new CustomModel(canvas)
+        return () => {
+            model.disposeEngine()
+        }
+    }, [])
     return <canvas></canvas>
 }
 
