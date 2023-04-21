@@ -1,5 +1,6 @@
 import './App.css'
 import BabylonExample from "./components/BabylonExample";
+import LoadingScreen from "./components/LoadingScreen";
 
 function App() {
     return (
@@ -7,6 +8,7 @@ function App() {
             <h3>
                 Babylon Example
             </h3>
+            <LoadingScreen/>
             <BabylonExample/>
         </div>
     )
