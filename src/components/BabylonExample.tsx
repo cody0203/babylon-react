@@ -1,13 +1,13 @@
 import {useEffect} from "react";
-import {CustomLoadingScreen} from "../BabylonExamples/CustomLoadingScreen";
+import {CameraMechanics} from "../BabylonExamples/CameraMechanics";
 
 const BabylonExample = () => {
     useEffect(() => {
         const canvas = document.querySelector('canvas')!;
-        const loadingBar = document.getElementById('loadingBar') as HTMLElement;
-        const percentLoaded = document.getElementById('percentLoaded') as HTMLElement;
-        const loader = document.getElementById('loader') as HTMLElement;
-        const model = new CustomLoadingScreen(canvas, loadingBar, percentLoaded, loader)
+        // const loadingBar = document.getElementById('loadingBar') as HTMLElement;
+        // const percentLoaded = document.getElementById('percentLoaded') as HTMLElement;
+        // const loader = document.getElementById('loader') as HTMLElement;
+        const model = new CameraMechanics(canvas)
         return () => {
             model.disposeEngine()
         }

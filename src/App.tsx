@@ -8,7 +8,7 @@ function App() {
             <h3>
                 Babylon Example
             </h3>
-            <LoadingScreen/>
+            {/*<LoadingScreen/>*/}
             <BabylonExample/>
         </div>
     )
