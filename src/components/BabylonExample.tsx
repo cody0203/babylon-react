@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {CameraMechanics} from "../BabylonExamples/CameraMechanics";
+import {MeshActions} from "../BabylonExamples/MeshActions";
 
 const BabylonExample = () => {
     useEffect(() => {
@@ -7,7 +7,7 @@ const BabylonExample = () => {
         // const loadingBar = document.getElementById('loadingBar') as HTMLElement;
         // const percentLoaded = document.getElementById('percentLoaded') as HTMLElement;
         // const loader = document.getElementById('loader') as HTMLElement;
-        const model = new CameraMechanics(canvas)
+        const model = new MeshActions(canvas)
         return () => {
             model.disposeEngine()
         }
